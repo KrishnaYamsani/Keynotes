@@ -36,6 +36,13 @@ footer {
 footer p {
   color: #ccc;
 }
+
+.componetHeading {
+  font-family: "McLaren", cursive;
+  font-weight: 200;
+  margin: 50px auto 0 45%;
+}
+
 .note {
   background: #fff;
   border-radius: 7px;
@@ -66,6 +73,23 @@ footer p {
   height: 36px;
   cursor: pointer;
   outline: none;
+}
+
+.navbarcustom {
+  background-color: #f5ba13;
+  margin: 0 -16px;
+  padding: 16px 32px;
+  
+}
+
+.navcustom {
+  color: #fff;
+}
+.navbarbrandcustom {
+  color: #fff;
+  font-family: "McLaren", cursive;
+  font-weight: 500;
+ margin-left: 0;
 }
 
 form.create-note {
@@ -100,4 +124,45 @@ form.create-note button {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   outline: none;
+}
+
+
+.credentials  {
+  margin: 2% auto;
+  padding: 20px 0 40px;
+  text-align: center;
+}
+
+.credentials  h1 {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.credentials input {
+  border: 1px solid rgba(252, 252, 252, 0.4);
+  background-color: rgba(252, 252, 252, 0.2);
+  width: 250px;
+  border-radius: 3px;
+  font-family: "Source Sans Pro", sans-serif;
+  padding: 10px 15px;
+  margin: 0 auto 10px auto;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  color: #040D12;
+  background-color: #FBF0B2;
+  font-weight: 300;
+}
+
+
+.credentials button {
+  appearance: none;
+  outline: 0;
+  background-color: #f5ba13;
+  border: 0;
+  padding: 10px 15px;
+  
+  border-radius: 3px;
+  width: 250px;
+  font-size: 18px;
 }

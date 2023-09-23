@@ -1,60 +1,28 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
-
+import Home from "./Home";
+import Notes from "./Notes";
+import Navbar from "./navbar";
+import Login from "./Login";
+import Signin from "./Signin"
 function App() {
-  const [notes, setNotes] = useState([]);
-
-  useEffect(() => {
-    fetch("https://keynotes-api.onrender.com/notes")
-    .then((res) => res.json())
-    .then((data) =>{
-      console.log(data);
-      data.forEach(note => {
-        setNotes(prevNotes => {
-          return [...prevNotes,{title: note.title,content:note.content,id:note.number}];
-        })
-      });
-    })
-    .catch(err => {
-      console.log(err.message);
-    })
-  },[])
-
-  function addNote(newNote) {
-
-    setNotes(prevNotes => {
-      return [...prevNotes, {title: newNote.title,content:newNote.content,id:newNote.number}];
-    });
-    
-  }
-
-  function deleteNote(id) {
-    setNotes(prevNotes => {
-      return prevNotes.filter((noteItem, index) => {
-        return (noteItem.id?(noteItem.id!==id):(index!==id));
-      });
-    });
-  }
-
   return (
     <div>
-      <Header />
-      <CreateArea onAdd={addNote} />
-      {notes.map((noteItem, index) => {
-        return (
-          <Note
-            key={index}
-            id={noteItem.id||index}
-            title={noteItem.title}
-            content={noteItem.content}
-            onDelete={deleteNote}
-          />
-        );
-      })}
-      <Footer />
+      <Navbar />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Header />} />
+          <Route index element={<Home />} />
+          <Route path="notes" element={<Notes />} />
+          <Route path="signin" element={<Signin />} />
+          <Route path="login" element={<Login />} />
+          <Route index element={<Footer />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
